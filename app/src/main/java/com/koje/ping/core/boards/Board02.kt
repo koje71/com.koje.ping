@@ -13,7 +13,7 @@ import com.koje.ping.core.paths.TopLeftPath
 import com.koje.ping.core.paths.TopRightPath
 import com.koje.ping.core.paths.VerticalPath
 
-class Board01 : BoardBuilder() {
+class Board02 : BoardBuilder() {
 
     override fun create(target: Board) {
         with(target) {

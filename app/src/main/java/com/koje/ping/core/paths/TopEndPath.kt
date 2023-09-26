@@ -1,11 +1,11 @@
 package com.koje.ping.core.paths
 
-import com.koje.ping.core.Board
+import com.koje.ping.core.boards.Board
 import com.koje.ping.core.Playground
 import com.koje.ping.core.mobiles.Mobile
 import com.koje.ping.core.names.FromBottom
 
-class TopEndPath(board: Board, posX: Int, posY: Int) : Path(board, posX, posY) {
+class TopEndPath(board: Board, locX: Int, locY: Int) : Path(board, locX, locY) {
 
     init {
 
@@ -24,13 +24,15 @@ class TopEndPath(board: Board, posX: Int, posY: Int) : Path(board, posX, posY) {
     override fun enterFromTop(mobile: Mobile) {
         with(mobile) {
             addProcedure {
-                progress += surface.loopTime * 0.001f * speed
-                if (progress >= 0.5f) {
-                    progress = 1f
-                    moveOut(mobile)
-                } else {
-                    position.x = path.posX
-                    position.y = path.posY + size / 2 - 0.1f * progress
+                if(!Playground.pause) {
+                    progress += surface.loopTime * 0.001f * speed
+                    if (progress >= 0.5f) {
+                        progress = 1f
+                        moveOut(mobile)
+                    } else {
+                        position.x = path.posX
+                        position.y = path.posY + size / 2 - 0.1f * progress
+                    }
                 }
             }
         }
@@ -39,13 +41,15 @@ class TopEndPath(board: Board, posX: Int, posY: Int) : Path(board, posX, posY) {
     private fun moveOut(mobile: Mobile) {
         with(mobile) {
             addProcedure {
-                progress += surface.loopTime * 0.001f * speed
-                if (progress >= 0.5f) {
-                    progress = 1f
-                    board.enter(mobile, FromBottom, locX, locY + 1)
-                } else {
-                    position.x = path.posX
-                    position.y = path.posY + 0.1f * progress
+                if(!Playground.pause) {
+                    progress += surface.loopTime * 0.001f * speed
+                    if (progress >= 0.5f) {
+                        progress = 1f
+                        board.enter(mobile, FromBottom, locX, locY + 1)
+                    } else {
+                        position.x = path.posX
+                        position.y = path.posY + 0.1f * progress
+                    }
                 }
             }
         }

@@ -6,12 +6,13 @@ import com.koje.ping.R
 class HeaderSection : LinearLayoutBuilder.Editor {
     override fun edit(target: LinearLayoutBuilder) {
         target.addFrameLayout {
+            setPaddingsDP(5,5)
             addRelativeLayout {
                 setSizeMatchParent()
                 setGravityCenterLeft()
                 addTextView {
                     setFontId(R.font.nunito_bold)
-                    setTextColorID(R.color.Blue)
+                    setTextColorID(R.color.White)
                     setTextSizeSP(28)
                     setText("Ping")
                 }
@@ -21,9 +22,23 @@ class HeaderSection : LinearLayoutBuilder.Editor {
                 setGravityCenter()
                 addTextView {
                     setFontId(R.font.nunito_bold)
-                    setTextColorID(R.color.Blue)
+                    setTextColorID(R.color.White)
                     setTextSizeSP(28)
-                    setText("Board 1")
+                }
+            }
+            addRelativeLayout {
+                setSizeMatchParent()
+                setGravityCenterRight()
+                addImageView {
+                    setSizeDP(40)
+                    setDrawableId(R.drawable.menu)
+
+                    setOnClickListener {
+                        Activity.overlay.set(when(Activity.overlay.get()){
+                            is EmptyOverlay -> BoardSelection()
+                            else -> EmptyOverlay()
+                        })
+                    }
                 }
             }
         }

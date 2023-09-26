@@ -1,13 +1,14 @@
-package com.koje.ping.core
+package com.koje.ping.core.boards
 
 import android.view.MotionEvent
 import com.koje.framework.graphics.ComponentGroup
 import com.koje.framework.graphics.Position
+import com.koje.ping.core.Playground
 import com.koje.ping.core.mobiles.Mobile
 import com.koje.ping.core.names.Name
 import com.koje.ping.core.paths.Path
 import com.koje.ping.core.supplies.Ping
-import com.koje.ping.core.supplies.Power
+import com.koje.ping.core.supplies.PowerDisplay
 
 open class Board : ComponentGroup(Playground) {
 
@@ -16,17 +17,11 @@ open class Board : ComponentGroup(Playground) {
     val mobiles = mutableListOf<Mobile>()
     var order = 1
     var pings = 0
-    val power = Power()
+    val power = PowerDisplay()
 
 
-    init {
+    init{
         addComponent(power)
-    }
-
-    fun addPath(path: Path) {
-        addComponent(path)
-        paths.add(path)
-
     }
 
     fun add(path: Path) {
@@ -53,6 +48,18 @@ open class Board : ComponentGroup(Playground) {
     fun onTouch(position: Position, event: MotionEvent) {
         if (event.action == MotionEvent.ACTION_DOWN && power.value >= 100f) {
             addComponent(Ping(this, position))
+        }
+    }
+
+    companion object{
+        val builders = createBoardList()
+
+        private fun createBoardList():MutableList<BoardBuilder>{
+            with(mutableListOf<BoardBuilder>()){
+                add(Board01())
+                add(Board02())
+                return this
+            }
         }
     }
 

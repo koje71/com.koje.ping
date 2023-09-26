@@ -14,7 +14,7 @@ class App : Application() {
 
     companion object {
 
-        fun getPicMapId():Int{
+        fun getPicMapId(): Int {
             return R.drawable.picmap
         }
 

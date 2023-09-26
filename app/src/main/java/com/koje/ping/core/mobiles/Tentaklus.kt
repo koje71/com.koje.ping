@@ -1,7 +1,7 @@
 package com.koje.ping.core.mobiles
 
 import com.koje.framework.graphics.ComponentGroup
-import com.koje.ping.core.Board
+import com.koje.ping.core.boards.Board
 import com.koje.ping.core.Playground
 import com.koje.ping.core.names.Failed
 import com.koje.ping.core.names.Solved
@@ -16,9 +16,9 @@ class Tentaklus(board: Board) : Mobile(board) {
 
         addComponentGroup {
 
-            addTentakle(this, 0f)
-            addTentakle(this, 120f)
-            addTentakle(this, 240f)
+            listOf(0f,120f,240f).forEach{
+                addTentakle(this, it)
+            }
 
             addImageComponent {
                 image = Playground.picmap
@@ -69,7 +69,7 @@ class Tentaklus(board: Board) : Mobile(board) {
 
     }
 
-    fun addTentakle(target: ComponentGroup, angle: Float) {
+    private fun addTentakle(target: ComponentGroup, angle: Float) {
         var animation = Random.nextFloat() * 200f
         val animationSpeed = Random.nextFloat() * 0.05f
         target.addImageComponent {

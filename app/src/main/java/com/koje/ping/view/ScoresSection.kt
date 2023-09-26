@@ -13,7 +13,7 @@ class ScoresSection : LinearLayoutBuilder.Editor {
                 addTextView {
                     setLayoutWeight(1f)
                     setText("score 5")
-                    setTextColorID(R.color.Blue)
+                    setTextColorID(R.color.White)
                     setFontId(R.font.nunito_bold)
                     setTextSizeSP(20)
                 }
@@ -32,7 +32,7 @@ class ScoresSection : LinearLayoutBuilder.Editor {
                 addTextView {
                     setLayoutWeight(1f)
                     setText("2 required")
-                    setTextColorID(R.color.Blue)
+                    setTextColorID(R.color.White)
                     setFontId(R.font.nunito_bold)
                     setTextSizeSP(20)
                 }

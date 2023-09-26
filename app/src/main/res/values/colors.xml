@@ -12,4 +12,6 @@
     <color name="Title">#DD962E</color>
     <color name="Blue">#C6BBEC</color>
     <color name="Black">#000000</color>
+    <color name="White">#FFFFFF</color>
+    <color name="SandTransparent">#60BCAE84</color>
 </resources>

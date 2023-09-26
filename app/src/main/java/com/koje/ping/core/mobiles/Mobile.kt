@@ -2,7 +2,7 @@ package com.koje.ping.core.mobiles
 
 import com.koje.framework.graphics.ComponentGroup
 import com.koje.framework.graphics.Position
-import com.koje.ping.core.Board
+import com.koje.ping.core.boards.Board
 import com.koje.ping.core.Playground
 import com.koje.ping.core.names.Name
 import com.koje.ping.core.names.Open

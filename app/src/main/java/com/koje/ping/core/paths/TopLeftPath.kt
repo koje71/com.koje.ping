@@ -1,12 +1,12 @@
 package com.koje.ping.core.paths
 
-import com.koje.ping.core.Board
+import com.koje.ping.core.boards.Board
 import com.koje.ping.core.Playground
 import com.koje.ping.core.mobiles.Mobile
 import com.koje.ping.core.names.FromBottom
 import com.koje.ping.core.names.FromRight
 
-class TopLeftPath(board: Board, posX: Int, posY: Int) : Path(board, posX, posY) {
+class TopLeftPath(board: Board, locX: Int, locY: Int) : Path(board, locX, locY) {
 
     init {
 
@@ -25,13 +25,15 @@ class TopLeftPath(board: Board, posX: Int, posY: Int) : Path(board, posX, posY) 
     override fun enterFromTop(mobile: Mobile) {
         with(mobile) {
             addProcedure {
-                progress += surface.loopTime * 0.001f * speed
-                if (progress >= 1) {
-                    progress = 1f
-                    board.enter(mobile, FromRight, locX - 1, locY)
+                if(!Playground.pause) {
+                    progress += surface.loopTime * 0.001f * speed
+                    if (progress >= 1) {
+                        progress = 1f
+                        board.enter(mobile, FromRight, locX - 1, locY)
+                    }
+                    position.x = path.posX - size / 2 + size / 2 * cos90()
+                    position.y = path.posY + size / 2 - size / 2 * sin90()
                 }
-                position.x = path.posX - size / 2 + size / 2 * cos90()
-                position.y = path.posY + size / 2 - size / 2 * sin90()
             }
         }
     }
@@ -39,13 +41,15 @@ class TopLeftPath(board: Board, posX: Int, posY: Int) : Path(board, posX, posY) 
     override fun enterFromLeft(mobile: Mobile) {
         with(mobile) {
             addProcedure {
-                progress += surface.loopTime * 0.001f * speed
-                if (progress >= 1) {
-                    progress = 1f
-                    board.enter(mobile, FromBottom, locX, locY + 1)
+                if(!Playground.pause) {
+                    progress += surface.loopTime * 0.001f * speed
+                    if (progress >= 1) {
+                        progress = 1f
+                        board.enter(mobile, FromBottom, locX, locY + 1)
+                    }
+                    position.x = path.posX - size / 2 + size / 2 * sin90()
+                    position.y = path.posY + size / 2 - size / 2 * cos90()
                 }
-                position.x = path.posX - size / 2 + size / 2 * sin90()
-                position.y = path.posY + size / 2 - size / 2 * cos90()
             }
         }
     }

@@ -1,12 +1,12 @@
 package com.koje.ping.core.paths
 
-import com.koje.ping.core.Board
+import com.koje.ping.core.boards.Board
 import com.koje.ping.core.Playground
 import com.koje.ping.core.mobiles.Mobile
 import com.koje.ping.core.names.FromBottom
 import com.koje.ping.core.names.FromLeft
 
-class TopRightPath(board: Board, posX: Int, posY: Int) : Path(board, posX, posY) {
+class TopRightPath(board: Board, locX: Int, locY: Int) : Path(board, locX, locY) {
 
     init {
 
