@@ -1,7 +1,7 @@
 package com.koje.ping.core.paths
 
-import com.koje.ping.core.boards.Board
 import com.koje.ping.core.Playground
+import com.koje.ping.core.boards.Board
 import com.koje.ping.core.mobiles.Mobile
 import com.koje.ping.core.names.FromBottom
 import com.koje.ping.core.names.FromLeft
@@ -16,6 +16,10 @@ class TopRightPath(board: Board, locX: Int, locY: Int) : Path(board, locX, locY)
             count = 100
 
             addProcedure {
+                plane = when (board.pathsVisible) {
+                    true -> 1
+                    else -> -1
+                }
                 rotate(270f)
             }
         }
@@ -25,7 +29,7 @@ class TopRightPath(board: Board, locX: Int, locY: Int) : Path(board, locX, locY)
     override fun enterFromTop(mobile: Mobile) {
         with(mobile) {
             addProcedure {
-                progress += surface.loopTime * 0.001f * speed
+                if (!Playground.pause) progress += surface.loopTime * 0.001f * speed
                 if (progress >= 1) {
                     progress = 1f
                     board.enter(mobile, FromLeft, locX + 1, locY)
@@ -39,7 +43,7 @@ class TopRightPath(board: Board, locX: Int, locY: Int) : Path(board, locX, locY)
     override fun enterFromRight(mobile: Mobile) {
         with(mobile) {
             addProcedure {
-                progress += surface.loopTime * 0.001f * speed
+                if (!Playground.pause) progress += surface.loopTime * 0.001f * speed
                 if (progress >= 1) {
                     progress = 1f
                     board.enter(mobile, FromBottom, locX, locY + 1)

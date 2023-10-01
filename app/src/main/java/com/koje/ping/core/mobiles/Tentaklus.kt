@@ -1,8 +1,8 @@
 package com.koje.ping.core.mobiles
 
 import com.koje.framework.graphics.ComponentGroup
-import com.koje.ping.core.boards.Board
 import com.koje.ping.core.Playground
+import com.koje.ping.core.boards.Board
 import com.koje.ping.core.names.Failed
 import com.koje.ping.core.names.Solved
 import kotlin.random.Random
@@ -16,7 +16,7 @@ class Tentaklus(board: Board) : Mobile(board) {
 
         addComponentGroup {
 
-            listOf(0f,120f,240f).forEach{
+            listOf(0f, 120f, 240f).forEach {
                 addTentakle(this, it)
             }
 
@@ -43,8 +43,8 @@ class Tentaklus(board: Board) : Mobile(board) {
 
             addProcedure {
                 rotationAngle += when (rotationDirectionRight) {
-                    true -> 0.3f
-                    else -> -0.3f
+                    true -> 0.03f * surface.loopTime * speed
+                    else -> -0.03f * surface.loopTime * speed
                 }
                 if (rotationAngle < 0f) rotationAngle += 360f
                 if (rotationAngle > 360f) rotationAngle -= 360f

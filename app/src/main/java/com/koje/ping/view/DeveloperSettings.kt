@@ -5,11 +5,9 @@ import com.koje.framework.view.LinearLayoutBuilder
 import com.koje.framework.view.ViewBuilder
 import com.koje.ping.R
 import com.koje.ping.core.Playground
-import com.koje.ping.core.boards.Board
 import com.koje.ping.core.boards.BoardBuilder
-import com.koje.ping.core.supplies.Sound
 
-class BoardSelection : FrameLayoutBuilder.Editor {
+class DeveloperSettings : FrameLayoutBuilder.Editor {
     override fun edit(target: FrameLayoutBuilder) {
         Playground.pause = true
         target.addRelativeLayout {
@@ -25,32 +23,17 @@ class BoardSelection : FrameLayoutBuilder.Editor {
                 format(this)
 
                 addTextView {
-                    setText("Select Board")
+                    setText("Deverloper Settings")
                     setTextSizeSP(24)
                     setTextColorID(R.color.White)
                     setPaddingsDP(10, 0)
                     setFontId(R.font.nunito_bold)
                 }
 
-                addLinearLayout {
-                    setOrientationHorizontal()
-                    for (i in 0..5) addSelectionButton(this, i + 1, Board.builders[i])
-                }
-
-                addLinearLayout {
-                    setOrientationHorizontal()
-                    for (i in 6..11) addSelectionButton(this, i + 1, Board.builders[i])
-                }
-
-                addLinearLayout {
-                    setOrientationHorizontal()
-                    for (i in 12..17) addSelectionButton(this, i + 1, Board.builders[i])
-                }
             }
 
 
             setOnClickListener {
-                Sound.knock.play()
                 Activity.overlay.set(EmptyOverlay())
 
             }
@@ -92,7 +75,6 @@ class BoardSelection : FrameLayoutBuilder.Editor {
 
 
             setOnClickListener {
-                Sound.knock.play()
                 Playground.loadBoard(builder)
                 Activity.overlay.set(EmptyOverlay())
             }

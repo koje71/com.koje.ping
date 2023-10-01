@@ -2,8 +2,8 @@ package com.koje.ping.core.mobiles
 
 import com.koje.framework.graphics.ComponentGroup
 import com.koje.framework.graphics.Position
-import com.koje.ping.core.boards.Board
 import com.koje.ping.core.Playground
+import com.koje.ping.core.boards.Board
 import com.koje.ping.core.names.Name
 import com.koje.ping.core.names.Open
 
@@ -15,6 +15,12 @@ open class Mobile(val board: Board) : ComponentGroup(Playground) {
     var state: Name = Open
 
 
+    fun withPosition(xPos: Float, yPos: Float): Mobile {
+        position.x = xPos
+        position.y = yPos
+        return this
+    }
+
     init {
 
         addProcedure {
@@ -23,4 +29,8 @@ open class Mobile(val board: Board) : ComponentGroup(Playground) {
 
     }
 
+    fun speed(value: Float): Mobile {
+        speed = value
+        return this
+    }
 }

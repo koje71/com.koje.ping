@@ -12,11 +12,15 @@ import com.koje.ping.core.paths.TopEndPath
 import com.koje.ping.core.paths.TopLeftPath
 import com.koje.ping.core.paths.TopRightPath
 import com.koje.ping.core.paths.VerticalPath
+import com.koje.ping.core.supplies.BoardLoader
+import com.koje.ping.core.supplies.Click
 
 class Board01 : BoardBuilder() {
 
     override fun create(target: Board) {
         with(target) {
+            pathsVisible = true
+
             add(TopRightPath(this, 1, 2))
             add(HorizontalPath(this, 2, 2))
             add(HorizontalPath(this, 3, 2))
@@ -65,6 +69,12 @@ class Board01 : BoardBuilder() {
             add(BottomEndPath(this, 7, 5))
 
             add(Tentaklus(this), FromTop, 7, 3)
+
+            add(Click(6516, -0.14260864f, 0.03248675f))
+            add(Click(36797, -0.25836182f, -0.036964472f))
+            add(Click(71718, -0.29815674f, 0.0482067f))
+            add(BoardLoader(85000, 1))
+
         }
     }
 

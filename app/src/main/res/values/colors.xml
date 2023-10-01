@@ -13,5 +13,7 @@
     <color name="Blue">#C6BBEC</color>
     <color name="Black">#000000</color>
     <color name="White">#FFFFFF</color>
-    <color name="SandTransparent">#60BCAE84</color>
+    <color name="ClickBackground">#C5BFA8</color>
+    <color name="DialogBackground">#634D6C</color>
+    <color name="SandTransparent">#60E8E8E8</color>
 </resources>

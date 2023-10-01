@@ -1,12 +1,14 @@
 package com.koje.ping.view
 
 import com.koje.framework.view.LinearLayoutBuilder
+import com.koje.ping.BuildConfig
 import com.koje.ping.R
+import com.koje.ping.core.supplies.Sound
 
 class HeaderSection : LinearLayoutBuilder.Editor {
     override fun edit(target: LinearLayoutBuilder) {
         target.addFrameLayout {
-            setPaddingsDP(5,5)
+            setPaddingsDP(5, 5)
             addRelativeLayout {
                 setSizeMatchParent()
                 setGravityCenterLeft()
@@ -15,6 +17,18 @@ class HeaderSection : LinearLayoutBuilder.Editor {
                     setTextColorID(R.color.White)
                     setTextSizeSP(28)
                     setText("Ping")
+
+                    if(BuildConfig.DEBUG) {
+                        setOnClickListener {
+                            Sound.knock.play()
+                            Activity.overlay.set(
+                                when (Activity.overlay.get()) {
+                                    is EmptyOverlay -> DeveloperSettings()
+                                    else -> EmptyOverlay()
+                                }
+                            )
+                        }
+                    }
                 }
             }
             addRelativeLayout {
@@ -34,10 +48,13 @@ class HeaderSection : LinearLayoutBuilder.Editor {
                     setDrawableId(R.drawable.menu)
 
                     setOnClickListener {
-                        Activity.overlay.set(when(Activity.overlay.get()){
-                            is EmptyOverlay -> BoardSelection()
-                            else -> EmptyOverlay()
-                        })
+                        Sound.knock.play()
+                        Activity.overlay.set(
+                            when (Activity.overlay.get()) {
+                                is EmptyOverlay -> BoardSelection()
+                                else -> EmptyOverlay()
+                            }
+                        )
                     }
                 }
             }

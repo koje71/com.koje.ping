@@ -1,7 +1,10 @@
 package com.koje.ping.view
 
+import com.koje.framework.events.IntNotifier
+import com.koje.framework.utils.IntPreference
 import com.koje.framework.view.LinearLayoutBuilder
 import com.koje.ping.R
+import com.koje.ping.core.Playground
 
 class ScoresSection : LinearLayoutBuilder.Editor {
     override fun edit(target: LinearLayoutBuilder) {
@@ -12,10 +15,13 @@ class ScoresSection : LinearLayoutBuilder.Editor {
                 setSizeMatchParent()
                 addTextView {
                     setLayoutWeight(1f)
-                    setText("score 5")
                     setTextColorID(R.color.White)
                     setFontId(R.font.nunito_bold)
                     setTextSizeSP(20)
+
+                    addReceiver(score) {
+                        setText("score $it")
+                    }
                 }
             }
             addRelativeLayout {
@@ -31,12 +37,20 @@ class ScoresSection : LinearLayoutBuilder.Editor {
                 setSizeMatchParent()
                 addTextView {
                     setLayoutWeight(1f)
-                    setText("2 required")
                     setTextColorID(R.color.White)
                     setFontId(R.font.nunito_bold)
                     setTextSizeSP(20)
+
+                    addReceiver(required) {
+                        setText("$it required")
+                    }
                 }
             }
         }
+    }
+
+    companion object {
+        val score = IntPreference("score", 0)
+        val required = IntNotifier(Playground.currentBuilder.required.get())
     }
 }

@@ -2688,8 +2688,8 @@
      showguides="true"
      units="px"
      inkscape:current-layer="layer1"
-     inkscape:cx="1901.1125"
-     inkscape:cy="1919.0154"
+     inkscape:cx="1828.6489"
+     inkscape:cy="1803.4025"
      inkscape:document-units="px"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
@@ -2698,7 +2698,7 @@
      inkscape:window-width="1848"
      inkscape:window-x="72"
      inkscape:window-y="27"
-     inkscape:zoom="5.174124">
+     inkscape:zoom="3.6586582">
     <inkscape:grid
        enabled="true"
        id="grid815"
@@ -3104,6 +3104,26 @@
        style="fill:none;stroke:#705bb8;stroke-width:1.93600001;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 357.1875,-230.84377 v 23.8125"
        id="path1375"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#a755a2;stroke-width:0.86500001;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m 477.57291,-201.73961 v -2.64583 h 2.64583"
+       id="path1384"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#a755a2;stroke-width:0.86500001;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m 498.73958,-204.38544 h 2.64583 v 2.64583"
+       id="path1387"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#a755a2;stroke-width:0.86500001;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m 477.57291,-183.21877 v 2.64583 h 2.64583"
+       id="path1393"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#a755a2;stroke-width:0.86500001;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m 498.73958,-180.57294 h 2.64583 v -2.64583"
+       id="path1395"
        inkscape:connector-curvature="0" />
   </g>
 </svg>

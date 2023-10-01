@@ -21,7 +21,7 @@ class Background : ComponentGroup(Playground) {
                 scale(Playground.ratio * 1.3f)
                 rotate(angle)
 
-                angle += 0.01f
+                angle += 0.001f * surface.loopTime
                 if (angle > 360f) angle -= 360f
 
             }

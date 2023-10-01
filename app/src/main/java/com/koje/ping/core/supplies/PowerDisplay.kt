@@ -16,7 +16,7 @@ class PowerDisplay : ComponentGroup(Playground) {
             move(0.08f, -1f * Playground.ratio / 2 + 0.07f)
             scale(0.07f)
 
-            if(!Playground.pause) {
+            if (!Playground.pause) {
                 value += 0.02f * surface.loopTime
                 if (value > 200) value = 100f
             }

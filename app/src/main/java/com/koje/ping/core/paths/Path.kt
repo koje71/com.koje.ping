@@ -1,8 +1,8 @@
 package com.koje.ping.core.paths
 
 import com.koje.framework.graphics.ComponentGroup
-import com.koje.ping.core.boards.Board
 import com.koje.ping.core.Playground
+import com.koje.ping.core.boards.Board
 import com.koje.ping.core.mobiles.Mobile
 import com.koje.ping.core.names.FromBottom
 import com.koje.ping.core.names.FromLeft

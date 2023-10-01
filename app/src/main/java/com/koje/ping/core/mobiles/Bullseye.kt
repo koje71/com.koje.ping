@@ -1,8 +1,8 @@
 package com.koje.ping.core.mobiles
 
 import com.koje.framework.graphics.ComponentGroup
-import com.koje.ping.core.boards.Board
 import com.koje.ping.core.Playground
+import com.koje.ping.core.boards.Board
 import com.koje.ping.core.names.Failed
 import com.koje.ping.core.names.Solved
 import kotlin.random.Random
@@ -28,7 +28,7 @@ class Bullseye(board: Board) : Mobile(board) {
             }
 
             listOf(45f, 135f, 225f, 315f).forEach {
-              //  addMovingArrow(this, it)
+                //  addMovingArrow(this, it)
             }
 
             addImageComponent {
@@ -79,7 +79,7 @@ class Bullseye(board: Board) : Mobile(board) {
 
     }
 
-    fun addMovingArrow(target:ComponentGroup,angle:Float){
+    fun addMovingArrow(target: ComponentGroup, angle: Float) {
 
         target.addComponentGroup {
             addImageComponent {
