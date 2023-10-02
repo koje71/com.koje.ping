@@ -38,6 +38,15 @@ object Playground : Surface() {
         return Board01()
     }
 
+    fun loadNext() {
+        val current = Board.builders.indexOf(currentBuilder)
+        var next = current + 1
+        if (next >= Board.builders.size) {
+            next = 0
+        }
+        loadBoard(Board.builders[next])
+    }
+
     fun loadBoard(builder: BoardBuilder) {
         val oldPos = Board.builders.indexOf(currentBuilder)
         val newPos = Board.builders.indexOf(builder)
@@ -45,6 +54,7 @@ object Playground : Surface() {
         currentBuilder = builder
         GameSection.boardNumber.set(Board.builders.indexOf(builder))
         ScoresSection.required.set(currentBuilder.required.get())
+        GameSection.points.set(currentBuilder.solved.get())
         currentName.set(builder.name)
         var increase = false
         components.components.forEach {

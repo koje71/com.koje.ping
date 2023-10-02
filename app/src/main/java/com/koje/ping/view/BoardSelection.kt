@@ -34,17 +34,17 @@ class BoardSelection : FrameLayoutBuilder.Editor {
 
                 addLinearLayout {
                     setOrientationHorizontal()
-                    for (i in 0..5) addSelectionButton(this, i + 1, Board.builders[i])
+                    for (i in 0..4) addSelectionButton(this, i + 1, Board.builders[i])
                 }
 
                 addLinearLayout {
                     setOrientationHorizontal()
-                    for (i in 6..11) addSelectionButton(this, i + 1, Board.builders[i])
+                    for (i in 5..9) addSelectionButton(this, i + 1, Board.builders[i])
                 }
 
                 addLinearLayout {
                     setOrientationHorizontal()
-                    for (i in 12..17) addSelectionButton(this, i + 1, Board.builders[i])
+                    for (i in 10..14) addSelectionButton(this, i + 1, Board.builders[i])
                 }
             }
 
@@ -70,7 +70,7 @@ class BoardSelection : FrameLayoutBuilder.Editor {
             addTextView {
                 setText(index.toString())
                 setFontId(R.font.nunito_bold)
-                setTextSizeSP(20)
+                setTextSizeSP(28)
                 setWidthMatchParent()
                 setGravityCenter()
             }

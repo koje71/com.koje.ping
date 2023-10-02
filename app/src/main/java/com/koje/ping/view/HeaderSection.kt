@@ -16,9 +16,9 @@ class HeaderSection : LinearLayoutBuilder.Editor {
                     setFontId(R.font.nunito_bold)
                     setTextColorID(R.color.White)
                     setTextSizeSP(28)
-                    setText("Ping")
+                    setText("Ping Order")
 
-                    if(BuildConfig.DEBUG) {
+                    if (BuildConfig.DEBUG) {
                         setOnClickListener {
                             Sound.knock.play()
                             Activity.overlay.set(

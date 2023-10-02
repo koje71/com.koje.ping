@@ -16,7 +16,7 @@ class VerticalPath(board: Board, locX: Int, locY: Int) : Path(board, locX, locY)
             count = 100
 
             addProcedure {
-                plane = when (board.pathsVisible) {
+                plane = when (isVisible()) {
                     true -> 1
                     else -> -1
                 }

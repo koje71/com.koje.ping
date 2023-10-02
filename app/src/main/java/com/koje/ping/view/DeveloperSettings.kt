@@ -1,11 +1,10 @@
 package com.koje.ping.view
 
+import com.koje.framework.utils.BooleanPreference
 import com.koje.framework.view.FrameLayoutBuilder
-import com.koje.framework.view.LinearLayoutBuilder
 import com.koje.framework.view.ViewBuilder
 import com.koje.ping.R
 import com.koje.ping.core.Playground
-import com.koje.ping.core.boards.BoardBuilder
 
 class DeveloperSettings : FrameLayoutBuilder.Editor {
     override fun edit(target: FrameLayoutBuilder) {
@@ -30,6 +29,37 @@ class DeveloperSettings : FrameLayoutBuilder.Editor {
                     setFontId(R.font.nunito_bold)
                 }
 
+                addCheckbox {
+                    setText("Autoplay")
+                    setTextSizeSP(20f)
+                    setMarginsDP(5, 10, 0, 0)
+                    setFontId(R.font.nunito_bold)
+                    setColor(R.color.White)
+
+                    addReceiver(autoplay) {
+                        setChecked(it)
+                    }
+
+                    setOnCheckedChangeListener {
+                        autoplay.set(it)
+                    }
+                }
+
+                addCheckbox {
+                    setText("Raster")
+                    setTextSizeSP(20f)
+                    setMarginsDP(5, 10, 0, 0)
+                    setFontId(R.font.nunito_bold)
+                    setColor(R.color.White)
+
+                    addReceiver(raster) {
+                        setChecked(it)
+                    }
+
+                    setOnCheckedChangeListener {
+                        raster.set(it)
+                    }
+                }
             }
 
 
@@ -40,59 +70,6 @@ class DeveloperSettings : FrameLayoutBuilder.Editor {
         }
     }
 
-    fun addSelectionButton(target: LinearLayoutBuilder, index: Int, builder: BoardBuilder) {
-        target.addLinearLayout {
-            setBackgroundColorId(R.color.White)
-            setOrientationVertical()
-            setPaddingsDP(0, 5)
-            setMarginsDP(5, 5, 5, 5)
-            setWidthDP(50)
-            setGravityCenterVertical()
-            setLayoutWeight(1f)
-
-            addTextView {
-                setText(index.toString())
-                setFontId(R.font.nunito_bold)
-                setTextSizeSP(20)
-                setWidthMatchParent()
-                setGravityCenter()
-            }
-
-            addView {
-                setWidthMatchParent()
-                setHeightDP(2)
-                setMarginsDP(3, 0, 3, 0)
-                setBackgroundColorId(R.color.DialogBackground)
-            }
-
-            addTextView {
-                setText("${builder.required.get()}")
-                setFontId(R.font.nunito_bold)
-                setTextSizeSP(12)
-                setWidthMatchParent()
-                setGravityCenter()
-            }
-
-
-            setOnClickListener {
-                Playground.loadBoard(builder)
-                Activity.overlay.set(EmptyOverlay())
-            }
-
-            setBackgroundStateList {
-                addStatePressedGradient {
-                    // setStroke(2, R.color.Black)
-                    setCornerRadius(5)
-                    setColorId(R.color.ClickBackground)
-                }
-                addStateWildcardGradient {
-                    //  setStroke(2, R.color.Black)
-                    setCornerRadius(5)
-                    setColorId(R.color.White)
-                }
-            }
-        }
-    }
 
     fun format(target: ViewBuilder) {
         target.setBackgroundGradient {
@@ -101,6 +78,11 @@ class DeveloperSettings : FrameLayoutBuilder.Editor {
             setColorId(R.color.DialogBackground)
         }
 
+    }
+
+    companion object {
+        val autoplay = BooleanPreference("autoplay", false)
+        val raster = BooleanPreference("raster", false)
     }
 
 }

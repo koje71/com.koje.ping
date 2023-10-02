@@ -83,7 +83,7 @@ class Ping(val board: Board, val position: Position) : ComponentGroup(Playground
             }
         }
 
-     //   Sound.applause.play()
+        //   Sound.applause.play()
         Playground.currentBuilder.onSolved()
     }
 }

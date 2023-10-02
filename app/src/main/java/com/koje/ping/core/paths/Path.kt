@@ -16,6 +16,11 @@ open class Path(val board: Board, val locX: Int, val locY: Int) : ComponentGroup
     val posX = -0.45f + locX * size
     val posY = -0.65f + locY * size
     val path = this
+    var visible = false
+
+    fun isVisible(): Boolean {
+        return visible || board.pathsVisible
+    }
 
     init {
 

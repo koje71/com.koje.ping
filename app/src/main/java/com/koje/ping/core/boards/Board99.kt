@@ -8,7 +8,7 @@ class Board99 : BoardBuilder() {
     override fun create(target: Board) {
         with(target) {
 
-            add(Tentaklus(this), FromTop, 7, 3)
+            addMobile(Tentaklus(this), FromTop, 7, 3)
         }
     }
 

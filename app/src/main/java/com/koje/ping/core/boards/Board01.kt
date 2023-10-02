@@ -1,17 +1,22 @@
 package com.koje.ping.core.boards
 
 import com.koje.ping.core.mobiles.Tentaklus
+import com.koje.ping.core.names.BottomEnd
+import com.koje.ping.core.names.BottomLeft
+import com.koje.ping.core.names.BottomTop
 import com.koje.ping.core.names.FromBottom
 import com.koje.ping.core.names.FromRight
 import com.koje.ping.core.names.FromTop
-import com.koje.ping.core.paths.BottomEndPath
-import com.koje.ping.core.paths.BottomLeftPath
-import com.koje.ping.core.paths.BottomRightPath
-import com.koje.ping.core.paths.HorizontalPath
-import com.koje.ping.core.paths.TopEndPath
-import com.koje.ping.core.paths.TopLeftPath
-import com.koje.ping.core.paths.TopRightPath
-import com.koje.ping.core.paths.VerticalPath
+import com.koje.ping.core.names.LeftBottom
+import com.koje.ping.core.names.LeftRight
+import com.koje.ping.core.names.LeftTop
+import com.koje.ping.core.names.RightBottom
+import com.koje.ping.core.names.RightLeft
+import com.koje.ping.core.names.RightTop
+import com.koje.ping.core.names.TopBottom
+import com.koje.ping.core.names.TopEnd
+import com.koje.ping.core.names.TopLeft
+import com.koje.ping.core.names.TopRight
 import com.koje.ping.core.supplies.BoardLoader
 import com.koje.ping.core.supplies.Click
 
@@ -21,59 +26,38 @@ class Board01 : BoardBuilder() {
         with(target) {
             pathsVisible = true
 
-            add(TopRightPath(this, 1, 2))
-            add(HorizontalPath(this, 2, 2))
-            add(HorizontalPath(this, 3, 2))
-            add(BottomLeftPath(this, 4, 2))
-            add(TopLeftPath(this, 4, 1))
-            add(TopRightPath(this, 3, 1))
-            add(VerticalPath(this, 3, 2))
-            add(VerticalPath(this, 3, 3))
-            add(VerticalPath(this, 3, 4))
-            add(VerticalPath(this, 3, 5))
-            add(BottomLeftPath(this, 3, 6))
-            add(HorizontalPath(this, 2, 6))
-            add(BottomRightPath(this, 1, 6))
-            add(VerticalPath(this, 1, 5))
-            add(VerticalPath(this, 1, 4))
-            add(VerticalPath(this, 1, 3))
+            addPathSequence(
+                1, 2, listOf(
+                    TopRight, LeftRight, LeftRight, LeftBottom,
+                    TopLeft, RightTop, BottomTop, BottomTop, BottomTop, BottomTop, BottomLeft,
+                    RightLeft, RightBottom, TopBottom, TopBottom, TopBottom
+                )
+            )
 
-            add(Tentaklus(this), FromBottom, 3, 2)
 
-            add(VerticalPath(this, 3, 8))
-            add(TopRightPath(this, 3, 7))
-            add(HorizontalPath(this, 4, 7))
-            add(HorizontalPath(this, 5, 7))
-            add(HorizontalPath(this, 6, 7))
-            add(HorizontalPath(this, 7, 7))
-            add(TopLeftPath(this, 8, 7))
-            add(VerticalPath(this, 8, 8))
-            add(VerticalPath(this, 8, 9))
-            add(VerticalPath(this, 8, 10))
-            add(VerticalPath(this, 8, 11))
-            add(BottomLeftPath(this, 8, 12))
-            add(HorizontalPath(this, 7, 12))
-            add(BottomRightPath(this, 6, 12))
-            add(VerticalPath(this, 6, 11))
-            add(VerticalPath(this, 6, 10))
-            add(TopLeftPath(this, 6, 9))
-            add(HorizontalPath(this, 5, 9))
-            add(HorizontalPath(this, 4, 9))
-            add(BottomRightPath(this, 3, 9))
+            addPathSequence(
+                3, 8, listOf(
+                    TopBottom, TopRight, LeftRight, LeftRight, LeftRight, LeftRight, LeftTop,
+                    BottomTop, BottomTop, BottomTop, BottomTop, BottomLeft, RightLeft, RightBottom,
+                    TopBottom, TopBottom, TopLeft, RightLeft, RightLeft, RightBottom
+                )
+            )
 
-            add(Tentaklus(this), FromRight, 4, 7)
+            addPathSequence(
+                7, 2, listOf(
+                    TopEnd, BottomTop, BottomTop, BottomEnd
+                )
+            )
 
-            add(TopEndPath(this, 7, 2))
-            add(VerticalPath(this, 7, 3))
-            add(VerticalPath(this, 7, 4))
-            add(BottomEndPath(this, 7, 5))
 
-            add(Tentaklus(this), FromTop, 7, 3)
+            addMobile(Tentaklus(this), FromBottom, 3, 2)
+            addMobile(Tentaklus(this), FromRight, 4, 7)
+            addMobile(Tentaklus(this), FromTop, 7, 3)
 
-            add(Click(6516, -0.14260864f, 0.03248675f))
-            add(Click(36797, -0.25836182f, -0.036964472f))
-            add(Click(71718, -0.29815674f, 0.0482067f))
-            add(BoardLoader(85000, 1))
+            addAction(Click(6516, -0.14260864f, 0.03248675f))
+            addAction(Click(36797, -0.25836182f, -0.036964472f))
+            addAction(Click(71718, -0.29815674f, 0.0482067f))
+            addAction(BoardLoader(85000))
 
         }
     }

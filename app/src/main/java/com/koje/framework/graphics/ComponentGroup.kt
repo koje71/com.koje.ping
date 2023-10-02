@@ -8,6 +8,10 @@ open class ComponentGroup(surface: Surface) : Component(surface) {
     override fun draw() {
         super.draw()
 
+        if (plane < 0) {
+            return
+        }
+
         if (componentsNew.size > 0) {
             components.addAll(componentsNew)
             componentsNew.clear()
